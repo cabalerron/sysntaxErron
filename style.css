@@ -1,0 +1,458 @@
+/* ===========================
+   GLOBAL STYLES
+=========================== */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0f0f0;    /* Light mode background */
+  color: #111;             /* Light mode text */
+  display: flex;
+  flex-direction: column;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  background: #0b0f19;    /* Dark mode background */
+  color: #fff;             /* Dark mode text */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input {
+  color: inherit;
+  background: inherit;
+  border: 1px solid currentColor;
+  font-family: inherit;
+  transition: all 0.2s ease-in-out;
+}
+
+input::placeholder {
+  color: rgba(0,0,0,0.6);
+}
+
+body.dark-mode input::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+/* ===========================
+   CONTAINER
+=========================== */
+.container {
+  width: 90%;
+  max-width: 1400px;
+  min-height: auto;
+  padding: 40px;
+  margin: 0 0 0 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 20px;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+  flex-wrap: wrap;
+  padding: 16px 24px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+.header .logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: inherit;
+}
+
+.header-controls {
+  display: flex;
+  align-items: left;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.header-controls button {
+  display: inline-flex;
+  align-items: left;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: inherit;
+  background: inherit;
+  transition: color 0.3s, background 0.3s;
+}
+
+.header-controls button i {
+  font-size: 16px;
+}
+
+.header-controls button:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+body.dark-mode .header-controls button:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* ===========================
+   INTRO SECTION
+=========================== */
+.intro p {
+  font-size: 16px;
+  line-height: 1.7;
+  max-width: 100%;
+  font-style: italic;
+  color: inherit;
+}
+
+.intro p a {
+  font-size: 22px; /* icon size */
+  color: inherit;
+  transition: color 0.2s;
+}
+
+.intro a:hover {
+  color: #1da1f2; /* subtle hover effect */
+}
+
+/* ===========================
+   GIF SECTION
+=========================== */
+.gif-section {
+  display: flex;
+  justify-content: left;
+  margin-top: 20px;
+}
+
+.gif-container {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 12px;
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+
+.gif-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 350px;
+  text-align: left;
+  gap: 12px;
+}
+.gif-card-header {
+  display: flex;
+  justify-content: space-between; /* pushes title left, icon right */
+  align-items: center;
+  width: 100%; /* ensures it spans the full container width */
+}
+
+.gif-card-header h3 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.gif-card-header a {
+  font-size: 22px; /* icon size */
+  color: inherit;
+  transition: color 0.2s;
+}
+
+.gif-card-header a:hover {
+  color: #1da1f2; /* subtle hover effect */
+}
+.gif-card img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 15px;
+  border: 2px solid currentColor;
+  cursor: pointer; /* changes cursor to hand on hover */
+  transition: transform 0.2s ease-in-out;
+}
+
+.gif-card img:hover {
+  transform: scale(1.05); /* slight zoom to indicate interactivity */
+}
+
+.gif-card h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.gif-card p {
+  margin: 0;
+  font-size: 12px;
+  color: inherit;
+}
+
+body.dark-mode .gif-container {
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* GIF Modal */
+/* modal content (centered box) */
+.gif-modal-content {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 95vw;            /* modal can go up to 95% of viewport width */
+  max-height: 90vh;           /* modal can go up to 90% of viewport height */
+  width: auto;                /* width adapts to content */
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 12px;
+  text-align: left;
+  box-sizing: border-box;     /* includes padding in width/height */
+  overflow: auto;             /* allows scrolling if GIF is very large */
+}
+
+.gif-modal-content span.close {
+  align-self: flex-end;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.gif-modal-content img {
+  width: 100%;                /* fills modal width */
+  max-width: 1200px;          /* cap the GIF width for huge screens */
+  max-height: 85vh;            /* GIF won't exceed 85% of viewport height */
+  height: auto;               /* keep aspect ratio */
+  border-radius: 12px;
+}
+
+body.dark-mode .gif-modal-content {
+  background: #111;
+}
+/* ===========================
+   FOOTER
+=========================== */
+.footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* better alignment */
+  flex-wrap: wrap;
+  padding: 12px 24px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  font-size: 14px;
+  color: inherit;
+  gap: 10px;
+}
+
+.footer a {
+  font-size: 22px;
+  color: inherit;
+  transition: color 0.2s;
+}
+
+.footer a:hover {
+  color: #1da1f2;
+}
+
+/* ===========================
+   MODAL
+=========================== */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: rgba(255,255,255,0.95);
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: inherit;
+  transition: all 0.2s ease-in-out;
+}
+
+body.dark-mode .modal-content {
+  background: #111;
+}
+
+.modal-content h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.modal-content .close {
+  align-self: flex-end;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid currentColor;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Input */
+.search-input {
+  padding: 8px 12px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  width: 200px;
+  background: transparent;
+  color: inherit;
+}
+
+/* Button */
+.search-btn {
+  padding: 8px 12px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hover effect */
+.search-btn:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+body.dark-mode .search-btn:hover {
+  background: rgba(255,255,255,0.2);
+}
+.search-input:focus {
+  width: 260px;
+}
+/* ===========================
+   RESPONSIVE MEDIA QUERIES
+=========================== */
+@media screen and (max-width: 1024px) {
+  .container {
+    padding: 20px;
+  }
+
+  .header .logo {
+    font-size: 18px;
+  }
+
+  .header-controls button {
+    font-size: 14px;
+    padding: 4px 8px;
+  }
+
+  .gif-card img {
+    max-width: 300px;
+  }
+
+  .intro p {
+    font-size: 15px;
+  }
+
+  .footer {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-controls {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .gif-card img {
+    max-width: 100%;
+  }
+
+  .intro p {
+    font-size: 14px;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 12px;
+  }
+}
+
+.line {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: currentColor;
+  margin-bottom: 16px;
+  opacity: 0.2;
+}
+
+.line h4 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+
+@media screen and (max-width: 480px) {
+  .header .logo {
+    font-size: 16px;
+  }
+
+  .header-controls button {
+    font-size: 13px;
+    padding: 4px 6px;
+  }
+
+  .gif-card img {
+    max-width: 100%;
+  }
+
+  .intro p {
+    font-size: 13px;
+  }
+
+  .footer {
+    font-size: 11px;
+  }
+}

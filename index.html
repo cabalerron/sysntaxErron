@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Erron | Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- HEADER -->
+        <header class="header">
+            <a class="logo" href="https://example.com" target="_blank">syntaXErron</a>
+
+            <!-- Right-side: Search button + Dark/Light Toggle -->
+            <div class="header-controls">
+                <div class="search-wrapper">
+                    <input type="text" placeholder="Search projects..." class="search-input"
+                        oninput="searchProjects()" />
+                    <button class="search-btn" onclick="searchProjects()">
+                        <i class="fas fa-magnifying-glass"></i>
+                    </button>
+                </div>
+                <button class="mode-toggle" onclick="toggleMode()">
+                    <i class="fas fa-cog"></i> Settings
+                </button>
+            </div>
+        </header>
+
+        <!-- INTRO / PARAGRAPH -->
+        <div class="intro">
+            <p>
+                Hi! I’m looking to connect with people who are interested in my skill set and open to collaborations on
+                projects.
+                <br>
+                Apart from coding, some other activities that I like to do: Playing games, Riding motorcycles,
+                Traveling, Social gatherings and parties.
+                &nbsp;
+                <a href="https://github.com/cabalerron" target="_blank" class="social-icon">
+                    <i class="fab fa-github"></i>
+                </a>
+                &nbsp;
+                <a href="https://www.linkedin.com/in/erron-monteverde-4a441a287/" target="_blank" class="social-icon">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </p>
+        </div>
+        <div class="line">
+            <h4>My Projects</h4>
+        </div>
+
+        <!-- GIF DISPLAY -->
+
+        <!-- Project 1 -->
+        <div class="gif-section">
+            <div class="gif-container">
+                <div class="gif-card" data-title="jwt authentication system"
+                    onclick="openGifModal('JWT Authentication System','assets/images/jwt-auth-erron.gif', 'Spring Boot + JWT authentication with login and security features.')">
+                    <div class="gif-card">
+                        <div class="gif-card-header">
+                            <h3>JWT Authentication System</h3>
+                            <a href="https://github.com/cabalerron/jwt-auth-logins" target="_blank" class="social-icon">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                        <img src="assets/images/jwt-auth-erron.gif" alt="JWT Authentication System" />
+                        <div class="gif-info">
+                            <p>Spring Boot + JWT authentication with login and security features.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 2 -->
+             <!-- TODO: InProgress.... -->
+        </div>
+        <!-- GIF MODAL -->
+        <div id="gifModal" class="modal">
+            <div class="gif-modal-content">
+                <span class="close" onclick="closeGifModal()">&times;</span>
+                <div class="gif-card-header">
+                    <h3 id="gifModalTitle"></h3>
+                    <a href="https://github.com/cabalerron/jwt-auth-logins" target="_blank" class="social-icon">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+
+                <img id="gifModalImage" src="" alt="GIF Preview" />
+                <p id="gifModalDescription"></p>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p>&copy; 2026 Erron Monteverde. All rights reserved.</p>
+            <p>Connect me: &nbsp;
+                <a href="https://github.com/cabalerron" target="_blank" class="social-icon">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/erron-monteverde-4a441a287/" target="_blank" class="social-icon">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </p>
+        </footer>
+
+    </div>
+    <!-- LINK EXTERNAL JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>
