@@ -183,7 +183,7 @@ body.dark-mode .header-controls button:hover {
 .gif-card img {
   width: 100%;
   max-width: 300px;
-  height: auto;
+  height: 270px;
   border-radius: 15px;
   border: 2px solid currentColor;
   cursor: pointer; /* changes cursor to hand on hover */
