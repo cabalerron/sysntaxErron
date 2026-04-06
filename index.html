@@ -58,8 +58,12 @@
         <!-- Project 1 -->
         <div class="gif-section">
             <div class="gif-container">
-                <div class="gif-card" data-title="jwt authentication system"
-                    onclick="openGifModal('JWT Authentication System','assets/images/jwt-auth-erron.gif', 'Spring Boot + JWT authentication with login and security features.')">
+                <div class="gif-card" onclick="openGifModal(
+                    'JWT Authentication System',
+                    'assets/images/jwt-auth-erron.gif',
+                    'Spring Boot + JWT authentication with login and security features.',
+                    'https://github.com/cabalerron/jwt-auth-logins'
+                )">
                     <div class="gif-card">
                         <div class="gif-card-header">
                             <h3>JWT Authentication System</h3>
@@ -75,19 +79,40 @@
                 </div>
             </div>
             <!-- Project 2 -->
-             <!-- TODO: InProgress.... -->
+            <div class="gif-container">
+                <div class="gif-card" onclick="openGifModal(
+                        'Employee Management System',
+                        'assets/images/ems-springboot-jdbc.gif',
+                        'Spring Boot + JDBC implementation for employee management.',
+                        'https://github.com/cabalerron/ems-springboot-jdbc'
+                )">
+                    <div class="gif-card">
+                        <div class="gif-card-header">
+                            <h3>Employee Management System</h3>
+                            <a href="https://github.com/cabalerron/ems-springboot-jdbc" target="_blank"
+                                class="social-icon">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                        <img src="assets/images/ems-springboot-jdbc.gif" alt="Employee Management System" />
+                        <div class="gif-info">
+                            <p>Spring Boot + JDBC implementation for employee management.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
         <!-- GIF MODAL -->
         <div id="gifModal" class="modal">
             <div class="gif-modal-content">
                 <span class="close" onclick="closeGifModal()">&times;</span>
                 <div class="gif-card-header">
                     <h3 id="gifModalTitle"></h3>
-                    <a href="https://github.com/cabalerron/jwt-auth-logins" target="_blank" class="social-icon">
+                    <a href="#" target="_blank" class="social-icon">
                         <i class="fab fa-github"></i>
                     </a>
                 </div>
-
                 <img id="gifModalImage" src="" alt="GIF Preview" />
                 <p id="gifModalDescription"></p>
             </div>
